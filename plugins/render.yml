@@ -1,0 +1,7 @@
+services:
+  - type: web
+    name: filetolink
+    env: python
+    build:
+      dockerfile: Dockerfile
+    port: 8080
