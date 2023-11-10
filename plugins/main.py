@@ -10,9 +10,9 @@ async def start(client, message):
     await message.reply_text(f"**Hello {message.from_user.mention},\nI am a Telegram Video Stream Bot. Send me any video and I will give you streaming & download link.**")
 
 
-@Client.on_message((filters.private) & (filters.document | filters.video | filters.audio | filters.photo) , group=4)
+@Client.on_message((filters.private) & (filters.document | filters.video) , group=4)
 async def private_receive_handler(client, message):
-    file_id = message.document or message.video or message.audio or message.photo
+    file_id = message.document or message.video
 
     msg = await client.send_cached_media(
         chat_id=BIN_CHANNEL,
@@ -30,3 +30,7 @@ async def private_receive_handler(client, message):
             ]
         ]
     ))
+
+@Client.on_message((filters.private) & (filters.photo | filters.audio) , group=4)
+async def photo_audio_erorr(client, message):
+    await message.reply_text(f"**Error! Send me a video file.**")
