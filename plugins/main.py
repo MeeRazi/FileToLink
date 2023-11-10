@@ -13,7 +13,7 @@ async def start(client, message):
 @Client.on_message((filters.private) & (filters.document | filters.video | filters.audio | filters.photo) , group=4)
 async def private_receive_handler(client, message):
     file_id = message.document or message.video or message.audio or message.photo
-    chat_id = message.chat.id
+    chat_id = message.from_user.id
     msg = await client.send_cached_media(
         chat_id=BIN_CHANNEL,
         file_id=file_id.file_id)
