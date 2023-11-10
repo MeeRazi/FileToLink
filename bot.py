@@ -1,7 +1,7 @@
 
 from pyrogram import Client, __version__
 from info import API_ID, API_HASH, BOT_TOKEN, PORT
-from plugins.main import temp
+from utils import temp
 from aiohttp import web
 from web.route import web_server
 

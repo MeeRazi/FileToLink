@@ -3,10 +3,6 @@ from info import URL, BIN_CHANNEL
 from pyrogram.types import InlineKeyboardMarkup, InlineKeyboardButton
 
 
-class temp(object):
-    BOT = None
-
-
 @Client.on_message(filters.command("start") & filters.private)
 async def start(client, message):
     await message.reply_text(f"Hello {message.from_user.mention},\n\nI am a Telegram Video Stream Bot. Send me any video and I will give you streaming & download link.")

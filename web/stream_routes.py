@@ -3,7 +3,7 @@ import logging
 import secrets
 import mimetypes
 from info import BIN_CHANNEL
-from plugins.main import temp
+from utils import temp
 from aiohttp import web
 from web.utils.custom_dl import TGCustomYield, chunk_size, offset_fix
 from web.utils.render_template import render_page
