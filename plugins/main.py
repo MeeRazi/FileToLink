@@ -13,23 +13,15 @@ async def start(client, message):
 @Client.on_message((filters.private) & (filters.document | filters.video | filters.audio | filters.photo) , group=4)
 async def private_receive_handler(client, message):
     file_id = message.document or message.video or message.audio or message.photo
-    chat_id = message.from_user.id
+
     msg = await client.send_cached_media(
         chat_id=BIN_CHANNEL,
         file_id=file_id.file_id)
-    
-
-    captions = await temp.BOT.get_messages(chat_id, file_id.file_id)
-    caption = captions.caption
-    if not caption:
-        caption = "File Name Not Found"
-    files_name = caption.replace("_", " ").replace("+", "").replace(".", " ").replace("mkv", "").replace("mp4", "")
-    print(files_name) 
 
     online = f"{URL}/watch/{msg.id}"
     download = f"{URL}/download/{msg.id}"
     await message.reply_text(
-        text=f"**File Name:\n{files_name}\nStreaming Link:** \n{online}\n\n**Download Link:** \n{download}",
+        text=f"**Streaming Link:**\n{online}\n\n**Download Link:**\n{download}",
         reply_markup=InlineKeyboardMarkup(
         [
             [
