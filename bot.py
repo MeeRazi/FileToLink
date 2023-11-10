@@ -1,6 +1,6 @@
 
 from pyrogram import Client, __version__
-from info import API_ID, API_HASH, BOT_TOKEN
+from info import API_ID, API_HASH, BOT_TOKEN, PORT
 from plugins.main import temp
 from aiohttp import web
 from web.route import web_server
@@ -32,7 +32,7 @@ class Bot(Client):
         temp.BOT = self
         app = web.AppRunner(await web_server())
         await app.setup()
-        await web.TCPSite(app, "0.0.0.0", "5050").start()
+        await web.TCPSite(app, "0.0.0.0", PORT).start()
 
     async def stop(self, *args):
         await super().stop()
