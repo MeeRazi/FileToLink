@@ -13,7 +13,7 @@ async def private_receive_handler(client, message):
     file_id = message.document or message.video or message.audio or message.photo
     msg = await client.send_cached_media(
         chat_id=BIN_CHANNEL,
-        file_id=file_id.id)
+        file_id=file_id.file_id)
     online = f"{URL}watch/{msg.id}"
     download = f"{URL}download/{msg.id}"
     await message.reply_text(
