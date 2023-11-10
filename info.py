@@ -1,11 +1,10 @@
-from os import environ
-
+import os
 # Bot information
-API_ID = environ.get('API_ID', "")
-API_HASH = environ.get('API_HASH', "")
-BOT_TOKEN = environ.get('BOT_TOKEN', "")
+API_ID = os.getenv('API_ID', "")
+API_HASH = os.getenv('API_HASH', "")
+BOT_TOKEN = os.getenv('BOT_TOKEN', "")
 
 # stream vars
-PORT = int(environ.get('PORT', '5050'))
-BIN_CHANNEL = environ.get("BIN_CHANNEL", "")
-URL = environ.get("URL", "")
+PORT = int(os.getenv('PORT', '5050'))
+BIN_CHANNEL = os.getenv("BIN_CHANNEL", "")
+URL = os.getenv("URL", "")
