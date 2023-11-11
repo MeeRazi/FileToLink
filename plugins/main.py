@@ -1,8 +1,6 @@
 from pyrogram import Client, filters
 from info import URL, BIN_CHANNEL
 from pyrogram.types import InlineKeyboardMarkup, InlineKeyboardButton
-from utils import temp
-import re
 
 
 @Client.on_message(filters.command("start") & filters.private)
