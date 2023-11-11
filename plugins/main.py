@@ -12,10 +12,11 @@ async def start(client, message):
 async def private_receive_handler(client, message):
     file_id = message.document or message.video
 
-    msg = await client.send_cached_media(
-        chat_id=BIN_CHANNEL,
-        file_id=file_id.file_id,
-        caption=f"**File Name:** {file_id.file_name}\n**User:** {message.from_user.mention}",)
+    msg = await message.forward(
+        chat_id=BIN_CHANNEL)
+
+        #file_id=file_id.file_id,
+        #caption=f"**File Name:** {file_id.file_name}\n**User:** {message.from_user.mention}",)
 
     online = f"{URL}/watch/{msg.id}"
     download = f"{URL}/download/{msg.id}"
@@ -28,7 +29,8 @@ async def private_receive_handler(client, message):
                 InlineKeyboardButton("Download", url=download)
             ]
         ]
-    ))
+    ),
+    disable_web_page_preview=True)
 
 @Client.on_message((filters.private) & (filters.photo | filters.audio) , group=4)
 async def photo_audio_erorr(client, message):
