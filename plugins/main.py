@@ -34,36 +34,3 @@ async def private_receive_handler(client, message):
 @Client.on_message((filters.private) & (filters.photo | filters.audio) , group=4)
 async def photo_audio_erorr(client, message):
     await message.reply_text(f"**Error! Send me a video file.**")
-
-
-@Client.on_message(filters.private & filters.command("stream"))
-async def reply_stream(client, message):
-    reply_message = message.reply_to_message
-
-    if not reply_message or not (reply_message.document or reply_message.video):
-        return await message.reply_text("**Reply to a video or document file.**")
-
-    file_id = reply_message.document or reply_message.video
-
-    try:
-        msg = await reply_message.forward(chat_id=BIN_CHANNEL)
-    except Exception as e:
-        return await message.reply_text(f"Error: {str(e)}")
-
-    online_url = f"{URL}/watch/{msg.id}"
-    download_url = f"{URL}/download/{msg.id}"
-
-    file_name = file_id.file_name.replace("_", " ").replace(".mp4", "").replace(".mkv", "").replace(".", " ")
-
-    await message.reply_text(
-        text=f"<b>Here Is Your Streamable Link\n\nFile Name</b>:\n<code>{file_name}</code>\n\n<b>Powered By - <a href=https://t.me/iPRIMEHUB>©𝐏𝐫𝐢𝐦𝐞𝐇𝐮𝐛™</a></b>",
-        reply_markup=InlineKeyboardMarkup(
-            [
-                [
-                    InlineKeyboardButton("Watch", url=online_url),
-                    InlineKeyboardButton("Download", url=download_url)
-                ]
-            ]
-        ),
-        disable_web_page_preview=True
-    )
