@@ -1,6 +1,6 @@
 
 from pyrogram import Client, __version__
-from info import API_ID, API_HASH, BOT_TOKEN, PORT, BIN_CHANNEL
+from info import API_ID, API_HASH, BOT_TOKEN, PORT
 from utils import temp
 from aiohttp import web
 from web.route import web_server
@@ -26,7 +26,6 @@ class Bot(Client):
         await app.setup()
         await web.TCPSite(app, "0.0.0.0", PORT).start()
         print(f"Bot started. Pyrogram v{__version__}")
-        await self.send_message(text="File to Link Bot started.", chat_id=BIN_CHANNEL)
 
     async def stop(self, *args):
         await super().stop()
