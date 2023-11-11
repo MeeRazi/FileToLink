@@ -11,38 +11,10 @@ from urllib.parse import quote_plus
 
 routes = web.RouteTableDef()
 
-# From chatGPT
-home_template = """
-<!DOCTYPE html>
-<html>
-<head>
-  <style>
-    body {
-      font-family: 'Helvetica Neue', Arial, sans-serif;
-      background-color: #3498db;
-      margin: 0;
-      padding: 0;
-      display: flex;
-      justify-content: center;
-      align-items: center;
-      height: 100vh;
-    }
-
-    h1 {
-      font-size: 4rem;
-      color: #fff;
-    }
-  </style>
-</head>
-<body>
-  <h1>©PrimeHub™</h1>
-</body>
-</html>
-"""
 
 @routes.get("/", allow_head=True)
 async def root_route_handler(request):
-    raise web.HTTPFound('https://ryme.pages.dev')
+    raise web.HTTPFound('https://telegram.me/iPrimeHub')
 
 
 @routes.get("/watch/{message_id}")
