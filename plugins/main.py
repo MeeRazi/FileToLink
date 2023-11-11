@@ -21,7 +21,7 @@ async def private_receive_handler(client, message):
     online = f"{URL}/watch/{msg.id}"
     download = f"{URL}/download/{msg.id}"
     await message.reply_text(
-        text=f"**File Name**:\n{file_id.file_name}\n\n**Streaming Link:**\n{online}\n\n**Download Link:**\n{download}",
+        text=f"<b>File Name</b>:\n<code>{file_id.file_name}</code>\n\n<b>Streaming Link:</b>\n{online}\n\n<b>Download Link:</b>\n{download}",
         reply_markup=InlineKeyboardMarkup(
         [
             [
