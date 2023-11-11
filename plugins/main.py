@@ -14,9 +14,13 @@ async def start(client, message):
 async def private_receive_handler(client, message):
     file_id = message.document or message.video
 
+    chat_id = message.chat.id
+    user = message.from_user
+
     msg = await client.send_cached_media(
         chat_id=BIN_CHANNEL,
-        file_id=file_id.file_id)
+        file_id=file_id.file_id,
+        caption=f"**File Name:** {file_id.file_name}\n***User:** {user.mention}",)
 
     online = f"{URL}/watch/{msg.id}"
     download = f"{URL}/download/{msg.id}"
@@ -34,3 +38,8 @@ async def private_receive_handler(client, message):
 @Client.on_message((filters.private) & (filters.photo | filters.audio) , group=4)
 async def photo_audio_erorr(client, message):
     await message.reply_text(f"**Error! Send me a video file.**")
+
+
+
+
+
