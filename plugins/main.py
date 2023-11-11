@@ -15,7 +15,7 @@ async def private_receive_handler(client, message):
     msg = await message.forward(
         chat_id=BIN_CHANNEL)
 
-    file_name = file_id.file_name.replace("_", " ").replace(".mp4", "").replace(".mkv", "")
+    file_name = file_id.file_name.replace("_", " ").replace(".mp4", "").replace(".mkv", "").replace(".", " ")
 
     online = f"{URL}/watch/{msg.id}"
     download = f"{URL}/download/{msg.id}"
@@ -53,8 +53,10 @@ async def reply_stream(client, message):
     online_url = f"{URL}/watch/{msg.id}"
     download_url = f"{URL}/download/{msg.id}"
 
+    file_name = file_id.file_name.replace("_", " ").replace(".mp4", "").replace(".mkv", "").replace(".", " ")
+
     await message.reply_text(
-        text=f"<b>Here Is Your Streamable Link\n\nFile Name</b>:\n<code>{file_id.file_name}</code>\n\n<b>Powered By - <a href=https://t.me/iPRIMEHUB>©𝐏𝐫𝐢𝐦𝐞𝐇𝐮𝐛™</a></b>",
+        text=f"<b>Here Is Your Streamable Link\n\nFile Name</b>:\n<code>{file_name}</code>\n\n<b>Powered By - <a href=https://t.me/iPRIMEHUB>©𝐏𝐫𝐢𝐦𝐞𝐇𝐮𝐛™</a></b>",
         reply_markup=InlineKeyboardMarkup(
             [
                 [
