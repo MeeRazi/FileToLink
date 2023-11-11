@@ -15,12 +15,12 @@ async def private_receive_handler(client, message):
     msg = await client.send_cached_media(
         chat_id=BIN_CHANNEL,
         file_id=file_id.file_id,
-        caption=f"**File Name:** {file_id.file_name}\n***User:** {message.from_user.mention}",)
+        caption=f"**File Name:** {file_id.file_name}\n**User:** {message.from_user.mention}",)
 
     online = f"{URL}/watch/{msg.id}"
     download = f"{URL}/download/{msg.id}"
     await message.reply_text(
-        text=f"**Streaming Link:**\n{online}\n\n**Download Link:**\n{download}",
+        text=f"**File Name**:\n{file_id.file_name}\n\n**Streaming Link:**\n{online}\n\n**Download Link:**\n{download}",
         reply_markup=InlineKeyboardMarkup(
         [
             [
