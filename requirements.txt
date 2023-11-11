@@ -1,6 +1,4 @@
-pyrogram
+pyrogram>=2.0.59
 tgcrypto
-requests
-bs4
 aiohttp
 aiofiles

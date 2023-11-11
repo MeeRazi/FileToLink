@@ -6,7 +6,6 @@ import urllib.parse
 import secrets
 import mimetypes
 import aiofiles
-import logging
 import aiohttp
 
 async def fetch_properties(message_id):
