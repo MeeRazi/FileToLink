@@ -56,14 +56,30 @@
 
     <div class="copyright">
         &copy; PrimeHub™
-
-        <!-- Button for MxPlayer -->
-        <button onclick="playMxPlayer()">Play with MxPlayer</button>
-
-        <!-- Button for VLC Player -->
-        <button onclick="playVLCPlayer()">Play with VLC Player</button>
-
     </div>
+
+    <!-- New container for player buttons -->
+    <div class="player-buttons-container">
+        <a href="javascript:;" onclick='playMxPlayer("%s")'>
+            <button class="cybr-btn">
+                Play with MxPlayer
+                <span aria-hidden>_</span>
+                <span aria-hidden class="cybr-btn__glitch">_404 Error</span>
+                <span aria-hidden class="cybr-btn__tag">_%s</span>
+            </button>
+        </a>
+
+        <a href="javascript:;" onclick='playVLCPlayer("%s")'>
+            <button class="cybr-btn">
+                Play with VLC Player
+                <span aria-hidden>_</span>
+                <span aria-hidden class="cybr-btn__glitch">_404 Error</span>
+                <span aria-hidden class="cybr-btn__tag">_%s</span>
+            </button>
+        </a>
+    </div>
+
+
 
     <script src="https://cdn.plyr.io/3.6.9/plyr.js"></script>
 	<script>
@@ -92,16 +108,12 @@
         const footer = document.querySelector('footer');
         const toogle = document.querySelector('.toogle');
 
-        // Function to play with MxPlayer
-        function playMxPlayer() {
-            // Use the current page URL for MxPlayer
-            window.location.href = window.location.href;
+        function playMxPlayer(streamUrl) {
+            window.location.href = 'mxplayer://' + streamUrl;
         }
 
-        // Function to play with VLC Player
-        function playVLCPlayer() {
-            // Use the current page URL for VLC Player
-            window.location.href = window.location.href;
+        function playVLCPlayer(streamUrl) {
+            window.location.href = 'vlc://' + streamUrl;
         }
 
     </script>
