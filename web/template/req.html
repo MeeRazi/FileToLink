@@ -40,19 +40,7 @@
     </header>
 
     <div class="container">
-        <tag src="%s" class="player"></tag>
-        <!-- button -->
-        <a href="javascript:;" onclick='playMxPlayer()'>
-            <button class="cybr-btn">
-                Play with MxPlayer
-            </button>
-        </a>
-
-        <a href="javascript:;" onclick='playVLCPlayer()'>
-            <button class="cybr-btn">
-                Play with VLC Player
-            </button>
-        </a>        
+        <tag src="%s" class="player"></tag>       
     </div>
 
     <footer>
@@ -84,18 +72,7 @@
 
         const body = document.querySelector('body');
         const footer = document.querySelector('footer');
-        const toogle = document.querySelector('.toogle');
-
-        const streamUrl = window.location.href;
-
-        // Your existing script content
-        function playMxPlayer() {
-            window.location.href = 'mxplayer://' + streamUrl;
-        }
-
-        function playVLCPlayer() {
-            window.location.href = 'vlc://' + streamUrl;
-        }        
+        const toogle = document.querySelector('.toogle');        
     </script>
 </body>
 </html>
