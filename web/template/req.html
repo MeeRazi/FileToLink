@@ -17,12 +17,7 @@
         font-family: sans-serif;
         background-color: #396691;
         }
-      .cybr-btn {
-        background-color: #4CAF50; /* Greenish color */
-        color: white;
-        font-weight: bold;
-        border-radius: 8px; /* Rounded corners */
-        }
+        
       marquee{
       font-size: 20px;
       font-weight: 700;
@@ -51,27 +46,6 @@
 	    <center><h4>Video not playing? Your browser may not support the codec. Please download and watch instead.</h4></center>
     </footer>
 
-    <!-- New container for player buttons -->
-    <div class="player-buttons-container">
-        <a href="javascript:;" onclick='playMxPlayer("%s")'>
-            <button class="cybr-btn">
-                Play with MxPlayer
-                <span aria-hidden>_</span>
-                <span aria-hidden class="cybr-btn__glitch">_404 Error</span>
-                <span aria-hidden class="cybr-btn__tag">_%s</span>
-            </button>
-        </a>
-
-        <a href="javascript:;" onclick='playVLCPlayer("%s")'>
-            <button class="cybr-btn">
-                Play with VLC Player
-                <span aria-hidden>_</span>
-                <span aria-hidden class="cybr-btn__glitch">_404 Error</span>
-                <span aria-hidden class="cybr-btn__tag">_%s</span>
-            </button>
-        </a>
-    </div>
-
     <script src="https://cdn.plyr.io/3.6.9/plyr.js"></script>
 	<script>
         const controls = [
@@ -98,16 +72,6 @@
         const body = document.querySelector('body');
         const footer = document.querySelector('footer');
         const toogle = document.querySelector('.toogle');
-        const streamUrl = window.location.href;
-
-        function playMxPlayer(streamUrl) {
-            window.location.href = 'mxplayer://' + streamUrl;
-        }
-
-        function playVLCPlayer(streamUrl) {
-            window.location.href = 'vlc://' + streamUrl;
-        }
-
     </script>
 </body>
 </html>
