@@ -56,6 +56,13 @@
 
     <div class="copyright">
         &copy; PrimeHub™
+
+        <!-- Button for MxPlayer -->
+        <button onclick="playMxPlayer()">Play with MxPlayer</button>
+
+        <!-- Button for VLC Player -->
+        <button onclick="playVLCPlayer()">Play with VLC Player</button>
+
     </div>
 
     <script src="https://cdn.plyr.io/3.6.9/plyr.js"></script>
@@ -84,6 +91,19 @@
         const body = document.querySelector('body');
         const footer = document.querySelector('footer');
         const toogle = document.querySelector('.toogle');
+
+        // Function to play with MxPlayer
+        function playMxPlayer() {
+            // Use the current page URL for MxPlayer
+            window.location.href = window.location.href;
+        }
+
+        // Function to play with VLC Player
+        function playVLCPlayer() {
+            // Use the current page URL for VLC Player
+            window.location.href = window.location.href;
+        }
+
     </script>
 </body>
 </html>
