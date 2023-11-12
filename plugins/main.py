@@ -21,7 +21,7 @@ async def private_receive_handler(client, message):
     download = f"{URL}/download/{msg.id}"
 
     link = f"{URL}/watch/{msg.id}"
-    await client.send_message(f"<b>Requested By: {message.from_user.mention}\n\nLink:</b>\n{link}", chat_id=BIN_CHANNEL, disable_web_page_preview=True)
+    await client.send_message(text=f"<b>Requested By: {message.from_user.mention}\n\nLink:</b>\n{link}", chat_id=BIN_CHANNEL, disable_web_page_preview=True)
 
     await message.reply_text(
         text=f"<b>Here Is Your Streamable Link\n\nFile Name</b>:\n<code>{file_name}</code>\n\n<b>Powered By - <a href=https://t.me/iPRIMEHUB>©𝐏𝐫𝐢𝐦𝐞𝐇𝐮𝐛™</a></b>",
