@@ -33,6 +33,7 @@ async def private_receive_handler(client, message):
             ]
         ]
     ),
+    reply_to_message_id=message.id,
     disable_web_page_preview=True)
 
 @Client.on_message((filters.private) & (filters.photo | filters.audio) , group=4)
