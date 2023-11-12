@@ -22,7 +22,7 @@ async def private_receive_handler(client, message):
 
     link = f"{URL}/watch/{msg.id}"
     await client.send_message(f"<b>Requested By: {message.from_user.mention}\n\nLink:</b>\n{link}", chat_id=BIN_CHANNEL , disable_web_page_preview=True)
-    
+
     await message.reply_text(
         text=f"<b>Here Is Your Streamable Link\n\nFile Name</b>:\n<code>{file_name}</code>\n\n<b>Powered By - <a href=https://t.me/iPRIMEHUB>©𝐏𝐫𝐢𝐦𝐞𝐇𝐮𝐛™</a></b>",
         reply_markup=InlineKeyboardMarkup(
@@ -37,4 +37,4 @@ async def private_receive_handler(client, message):
 
 @Client.on_message((filters.private) & (filters.photo | filters.audio) , group=4)
 async def photo_audio_erorr(client, message):
-    await message.reply_text(f"**Error! Send me a video file.**")
+    await message.reply_text(f"**Dude! Send me a video file.**")
