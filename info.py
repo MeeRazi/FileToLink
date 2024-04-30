@@ -6,5 +6,5 @@ BOT_TOKEN = os.getenv('BOT_TOKEN', "")
 
 # stream vars
 PORT = int(os.getenv('PORT', '5050'))
-BIN_CHANNEL = os.getenv("BIN_CHANNEL", "")
-URL = os.getenv("URL", "")
+BIN_CHANNEL = os.getenv("BIN_CHANNEL", "") #Log Channel
+URL = os.getenv("URL", "") #App URL not MongoDB URL
