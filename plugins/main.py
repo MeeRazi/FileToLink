@@ -12,19 +12,16 @@ async def start(client, message):
 async def private_receive_handler(client, message):
     file_id = message.document or message.video
 
-    msg = await message.forward(
-        chat_id=BIN_CHANNEL)
+    msg = await message.copy(
+        chat_id=BIN_CHANNEL,
+        caption=f"**File Name:** {file_id.file_name}\n\n**Requested By:** {message.from_user.mention}")
 
     file_name = file_id.file_name.replace("_", " ").replace(".mp4", "").replace(".mkv", "").replace(".", " ")
-
     online = f"{URL}/watch/{msg.id}"
     download = f"{URL}/download/{msg.id}"
 
-    link = f"{URL}/watch/{msg.id}"
-    await client.send_message(text=f"<b>Requested By: {message.from_user.mention}\nLink:</b>\n{link}", chat_id=BIN_CHANNEL, disable_web_page_preview=True)
-
     await message.reply_text(
-        text=f"<b>Here Is Your Streamable Link\n\nFile Name</b>:\n<code>{file_name}</code>\n\n<b>Powered By - <a href=https://t.me/iPRIMEHUB>©𝐏𝐫𝐢𝐦𝐞𝐇𝐮𝐛™</a></b>",
+        text=f"<b>Here Is Your Streamable Link\n\nFile Name</b>:\n<code>{file_name}</code>\n\n<b>Powered By - <a href=https://t.me/botsync>©BotSync™</a></b>",
         reply_markup=InlineKeyboardMarkup(
         [
             [
